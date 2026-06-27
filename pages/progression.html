@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Прогрессия и крафт — server вики</title>
+<link rel="stylesheet" href="../css/style.css">
+</head>
+<body data-page="progression" data-title="Прогрессия и крафт">
+<main class="content">
+  <h1>Прогрессия и крафт</h1>
+  <p>Путь к эндгейму строится вокруг одной цепочки. Каждый шаг готовит к следующему, а вершина — мощные
+     кастомные сеты и оружие, собранные из материалов боссов.</p>
+
+  <div class="lore" style="font-size:1.4rem;text-align:center">
+<span class="ca">Контракты</span> <span class="c8">→</span> <span class="ce">События</span> <span class="c8">→</span> <span class="cb">Аванпосты</span> <span class="c8">→</span> <span class="cc">Боссы</span> <span class="c8">→</span> <span class="c6">Крафт</span> <span class="c8">→</span> <span class="cd">Эндгейм</span>
+  </div>
+
+  <ul class="clean">
+    <li><a href="contracts.html">Контракты</a> — стартовые ресурсы и направление развития.</li>
+    <li><a href="bosses.html">События и боссы</a> — фирменные материалы для крафта.</li>
+    <li><a href="outposts.html">Аванпосты</a> — стабильный поток лута и редких предметов.</li>
+    <li><strong>Крафт</strong> на станциях — превращение материалов в снаряжение.</li>
+  </ul>
+
+  <h2>Станции крафта</h2>
+  <p>Лучшие предметы собираются не в обычном верстаке, а на особых станциях в <a href="city.html">городе</a>:</p>
+  <div class="grid">
+    <a class="card" href="#engineer"><span class="ic">⚙</span><span class="h">Инженер</span>Собирает кастомные сеты и оружие из материалов боссов.</a>
+    <a class="card" href="#recycler"><span class="ic">♻</span><span class="h">Утилизатор</span>Разбирает предметы обратно в осколки-ресурсы.</a>
+    <a class="card" href="#smith"><span class="ic">🔨</span><span class="h">Кузнец</span>Кузнечный стол для Тектонической брони.</a>
+  </div>
+
+  <h2 id="engineer">Инженер</h2>
+  <p>Главная станция крафта эндгейма. Кладёте <strong>базовый предмет</strong> и <strong>катализатор</strong> —
+     получаете готовое снаряжение. Каждая ветка боссов имеет свои материалы:</p>
+
+  <h3 style="color:var(--rar-rare)">Ветка Странника Времени <span style="color:var(--ink-faint);font-size:.9rem">(босс: Хранитель Времени)</span></h3>
+  <p>Материалы: <a href="item.html?id=chrono_shard">Хроно-осколок</a> + <a href="item.html?id=temporal_essence">Временная эссенция</a>.</p>
+  <table>
+    <tr><th>Результат</th><th>Нужно</th></tr>
+    <tr><td><a href="item.html?id=echo_blade">Клинок Эха</a></td><td>хроно-осколки + 3 эссенции</td></tr>
+    <tr><td><a href="item.html?id=chronomancers_hood">Сет «Странник Времени»</a> (4 части)</td><td>хроно-осколки + эссенции</td></tr>
+    <tr><td><a href="item.html?id=borrowed_pulse">Занятый Импульс</a></td><td>хроно-осколки + 1 эссенция</td></tr>
+  </table>
+
+  <h3 style="color:var(--rar-epic)">Ветка Железного Полководца <span style="color:var(--ink-faint);font-size:.9rem">(босс: Железный Воевода)</span></h3>
+  <p>Материалы: <a href="item.html?id=warlord_plate">Пластина Полководца</a> + <a href="item.html?id=battle_essence">Боевая эссенция</a>.</p>
+  <table>
+    <tr><th>Результат</th><th>Нужно</th></tr>
+    <tr><td><a href="item.html?id=warmasters_visor">Сет «Железный Полководец»</a> (4 части)</td><td>пластины + боевые эссенции</td></tr>
+    <tr><td><a href="item.html?id=polarity_crusher">Дробитель Полей</a></td><td>14 пластин + 4 эссенции</td></tr>
+    <tr><td><a href="item.html?id=blood_arena_sigil">Печать Кровавой Арены</a></td><td>пластины + эссенции</td></tr>
+  </table>
+
+  <h3 style="color:var(--rar-legend)">Ветка Владычества Повелителя <span style="color:var(--ink-faint);font-size:.9rem">(босс: Повелитель)</span></h3>
+  <p>Материалы: <a href="item.html?id=overlord_fragment">Осколок Владычества</a> + <a href="item.html?id=soul_essence">Эссенция души</a>, для топ-предметов нужно <a href="item.html?id=dominion_core">Ядро Владычества</a>.</p>
+  <table>
+    <tr><th>Результат</th><th>Нужно</th></tr>
+    <tr><td><a href="item.html?id=overlords_crown">Сет «Владычество»</a> (4 части)</td><td>осколки + эссенции душ + Ядро</td></tr>
+    <tr><td><a href="item.html?id=scepter_of_dominion">Скипетр Владычества</a></td><td>осколки + эссенции + Ядро</td></tr>
+    <tr><td><a href="item.html?id=overlords_fury">Ярость Повелителя</a></td><td>осколки + эссенции</td></tr>
+  </table>
+
+  <h3 style="color:var(--rar-myth)">Улучшения (мифика)</h3>
+  <p>Высшие предметы Владычества можно улучшить ещё на уровень:</p>
+  <table>
+    <tr><th>Улучшение</th><th>Из чего</th></tr>
+    <tr><td><a href="item.html?id=absolute_crown">Абсолютная Корона</a></td><td>Корона Повелителя + эссенции + 2 Ядра Владычества</td></tr>
+    <tr><td><a href="item.html?id=soul_reaper">Жнец Душ</a></td><td>Скипетр Владычества + эссенции душ</td></tr>
+  </table>
+
+  <h2 id="recycler">Утилизатор</h2>
+  <p>Станция-«разборка». Кладёте кастомный предмет — получаете <strong>осколки-ресурсы</strong> по цене из
+     таблицы. Удобно, чтобы вернуть часть материалов из лишнего снаряжения и пустить их в новый крафт.</p>
+  <div class="note danger">
+    <div class="t">Внимание</div>
+    Некоторые предметы не возвращаются при утилизации — например, <a href="item.html?id=dominion_core">Ядро Владычества</a>.
+    Не разбирайте редчайшие материалы.
+  </div>
+
+  <h2 id="smith">Кузнец (Тектоническая броня)</h2>
+  <p>Отдельная ветка — <a href="item.html?id=tectonic_chestplate">Тектонический сет</a> — собирается на
+     кузнечном столе из <strong>незерита</strong> и <a href="item.html?id=golem_heart">Сердца Голема</a>.
+     Это тяжёлая броня «скалы»: гасит ближний бой и стрелы, даёт иммунитет к отбрасыванию, но усиливает урон от взрывов.</p>
+
+  <h2>Что собирать в первую очередь</h2>
+  <ul class="clean">
+    <li><strong>Странник Времени</strong> — мобильный «лёгкий» сет: эхо-удары и спасение от смертельного удара.</li>
+    <li><strong>Железный Полководец</strong> — осадный сет с «Кровавой Ареной» для штурмов.</li>
+    <li><strong>Тектонический Страж</strong> — крепость ближнего боя для удержания позиций.</li>
+    <li><strong>Владычество</strong> — командный эндгейм-сет с призывом миньонов и сильнейшей защитой.</li>
+  </ul>
+  <p>Полный список — в <a href="items.html">каталоге предметов</a>.</p>
+</main>
+<script src="../js/site.js"></script>
+</body>
+</html>
