@@ -137,4 +137,32 @@
 
     if (crumb) crumb.innerHTML = '<a href="' + R + 'index.html">Вики</a> / <a href="items.html">Предметы</a> / ' + it.name;
   }
+
+  /* ---------------- Страница рецептов ---------------- */
+  var rec = document.getElementById('recipes');
+  if (rec) {
+    var RECIPES = window.RECIPES || [];
+    var h = '';
+    RECIPES.forEach(function (c) {
+      h += '<h2 style="margin-top:1.4em">' + c.cat + '</h2>';
+      if (c.intro) h += '<p>' + c.intro + '</p>';
+      (c.subs || []).forEach(function (s) {
+        if (s.set && SETS[s.set]) {
+          var st = SETS[s.set];
+          h += '<h3 style="color:' + rarColor(st.rarity) + '">' + st.name + '</h3>' +
+               '<p style="margin-top:0;color:var(--ink-faint)">' + st.blurb + '</p>';
+        }
+        h += '<table><tr><th>Предмет</th><th>Ванильная база</th><th>Компоненты (у Инженера)</th></tr>';
+        (s.rows || []).forEach(function (r) {
+          var it = byId(r[0]);
+          var name = it ? '<a href="item.html?id=' + it.id + '">' + it.name + '</a>' : r[0];
+          if (r[3]) name += ' <span style="color:var(--ink-faint);font-size:.85em">(' + r[3] + ')</span>';
+          h += '<tr><td>' + name + '</td><td>' + r[1] + '</td><td>' + r[2] + '</td></tr>';
+        });
+        h += '</table>';
+        if (s.note) h += '<p style="color:var(--ink-faint);font-size:.9em">' + s.note + '</p>';
+      });
+    });
+    rec.innerHTML = h;
+  }
 })();

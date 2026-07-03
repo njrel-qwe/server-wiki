@@ -39,6 +39,7 @@
     ]},
     { title: 'Предметы', links: [
       { id: 'items',       ic: '◆', t: 'Каталог предметов',  h: 'pages/items.html' },
+      { id: 'recipes',     ic: '⚒', t: 'Рецепты крафта',     h: 'pages/recipes.html' },
     ]},
     { title: 'Правила и сервис', links: [
       { id: 'fairplay',    ic: '◉', t: 'Честная игра',       h: 'pages/fairplay.html' },

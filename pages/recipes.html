@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Рецепты крафта — server вики</title>
+<link rel="stylesheet" href="../css/style.css">
+</head>
+<body data-page="recipes" data-title="Рецепты крафта">
+<main class="content">
+  <h1>Рецепты крафта</h1>
+  <p>Все кастомные предметы собираются у <a href="progression.html">Инженера</a> по схеме
+     «<strong>база + до 3 компонентов</strong>». Ниже — полный список по категориям: для брони каждый сет расписан
+     по элементам (шлем, нагрудник, поножи, ботинки). Боссовые материалы (осколки, эссенции, пластины, ядра) —
+     дроп с <a href="bosses.html">боссов</a>; ванильная база и реагенты добываются обычным путём.</p>
+  <div class="note">
+    <div class="t">Как читать таблицу</div>
+    <strong>База</strong> — предмет, который кладётся в главный слот Верстака Инженера.
+    <strong>Компоненты</strong> — что добавляется к базе. Пометка «апгрейд» значит, что базой служит уже готовый
+    кастомный предмет (улучшение переносит зачарования).
+  </div>
+  <div id="recipes"></div>
+</main>
+<script src="../js/site.js"></script>
+<script src="../js/items-data.js"></script>
+<script src="../js/items.js"></script>
+</body>
+</html>
