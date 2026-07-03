@@ -275,6 +275,24 @@ code{font-family:var(--mc);font-size:.82em;background:rgba(0,0,0,.4);padding:1px
 .content>*{animation:fadeStep .18s steps(3) both}
 @keyframes fadeStep{from{opacity:0}to{opacity:1}}
 
+/* ---------- Схемы алтарей (слои структуры) ---------- */
+.schema-altar{margin:26px 0 34px;padding:16px 16px 20px;background:rgba(16,18,16,.75);border:2px solid var(--edge)}
+.schema-altar h3{margin-top:0}
+.schema-layers{display:flex;gap:22px;flex-wrap:wrap;margin-top:10px}
+.schema-layer{display:flex;flex-direction:column;align-items:center;gap:8px}
+.schema-layer .lbl{font-family:var(--mc);font-size:.66rem;color:var(--ink-dim);letter-spacing:.5px;text-transform:uppercase}
+.schema-grid{display:grid;grid-template-columns:repeat(3,34px);grid-template-rows:repeat(3,34px);gap:2px;background:var(--edge);border:3px solid var(--edge);box-shadow:inset 0 0 0 1px rgba(0,0,0,.4)}
+.schema-cell{width:34px;height:34px;background-repeat:no-repeat;background-size:cover;image-rendering:pixelated;position:relative}
+.schema-cell.empty{background-color:#1b1d1b;background-image:repeating-conic-gradient(#232523 0% 25%,#1b1d1b 0% 50%);background-size:10px 10px}
+.schema-cell.lava{background-color:#2a1503;position:relative}
+.schema-cell.lava::after{content:'';position:absolute;inset:0;background:radial-gradient(circle,rgba(255,150,30,.55),transparent 70%)}
+.schema-legend{display:flex;flex-wrap:wrap;gap:8px 16px;margin-top:14px;font-size:.78rem;color:var(--ink-dim)}
+.schema-legend span{display:inline-flex;align-items:center;gap:6px}
+.schema-legend i{width:16px;height:16px;display:inline-block;background-size:cover;image-rendering:pixelated;border:1px solid var(--edge)}
+.schema-legend i.empty{background-color:#1b1d1b;background-image:repeating-conic-gradient(#232523 0% 25%,#1b1d1b 0% 50%);background-size:6px 6px}
+.schema-legend i.lava{background:radial-gradient(circle,#ff9c1e,#7a2c02)}
+.schema-note{font-size:.82rem;color:var(--ink-faint);margin-top:10px}
+
 /* ---------- Responsive ---------- */
 @media(max-width:900px){
   .sidebar{transform:translateX(-100%);transition:transform .15s steps(4);box-shadow:6px 0 24px rgba(0,0,0,.6)}
