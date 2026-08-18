@@ -144,7 +144,7 @@
     var RECIPES = window.RECIPES || [];
     var h = '';
     RECIPES.forEach(function (c) {
-      h += '<h2 style="margin-top:1.4em">' + c.cat + '</h2>';
+      h += '<h2' + (c.id ? ' id="' + c.id + '"' : '') + ' style="margin-top:1.4em">' + c.cat + '</h2>';
       if (c.intro) h += '<p>' + c.intro + '</p>';
       (c.subs || []).forEach(function (s) {
         if (s.set && SETS[s.set]) {
