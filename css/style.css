@@ -30,7 +30,7 @@
   --gold:#ffd24a; --yellow:#ffff55; --red:#ff5c5c; --blue:#62cbff; --purple:#c07bff;
   /* редкости */
   --rar-common:#c3c9cf; --rar-uncommon:#6fe06f; --rar-rare:#5cc9ff;
-  --rar-epic:#c07bff; --rar-legend:#ffd24a; --rar-myth:#ff5454;
+  --rar-epic:#c07bff; --rar-legend:#ffd24a;
 
   --mc:'PixelMC','Press Start 2P',monospace;
   --tsh:2px 2px 0 var(--edge);            /* игровая тень текста */

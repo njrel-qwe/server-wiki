@@ -27,6 +27,7 @@ PAGES = [
     ("☠", "pages/bosses.html"),
     ("↗", "pages/progression.html"),
     ("◆", "pages/items.html"),
+    ("✦", "pages/rarity.html"),
     ("⚒", "pages/recipes.html"),
     ("◉", "pages/fairplay.html"),
     ("§", "pages/rules.html"),

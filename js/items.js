@@ -73,7 +73,8 @@
         h += '<a class="itm" href="item.html?id=' + it.id + '">' +
                '<span class="slot">' + iconCell(it) + '</span>' +
                '<span class="nm">' + it.name + '</span>' +
-               '<span class="rar" style="color:' + rarColor(it.rarity) + '">' + rarName(it.rarity) + '</span>' +
+               '<span class="rar" style="color:' + rarColor(it.rarity) + '">' + rarName(it.rarity) +
+                 (it.power ? ' · Tier ' + it.power : '') + '</span>' +
              '</a>';
       });
       return h + '</div>';
@@ -125,6 +126,7 @@
         '<div style="flex:1;min-width:240px">' +
           '<span class="tagline" style="color:' + rarColor(it.rarity) + ';border-color:' + rarColor(it.rarity) + '">' + rarName(it.rarity) + '</span>' +
           ' <span class="tagline">' + (CATS[it.cat] || '') + '</span>' +
+          (it.power ? ' <span class="tagline">Power Tier ' + it.power + '</span>' : '') +
           '<h1 style="margin:.2em 0 0">' + it.name + '</h1>' +
           '<p style="margin-top:.4em">' + (it.desc || '') + '</p>' +
         '</div>' +

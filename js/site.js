@@ -39,6 +39,7 @@
     ]},
     { title: 'Предметы', links: [
       { id: 'items',       ic: '◆', t: 'Каталог предметов',  h: 'pages/items.html' },
+      { id: 'rarity',      ic: '✦', t: 'Редкость и сила',      h: 'pages/rarity.html' },
       { id: 'recipes',     ic: '⚒', t: 'Рецепты крафта',     h: 'pages/recipes.html' },
     ]},
     { title: 'Правила и сервис', links: [
