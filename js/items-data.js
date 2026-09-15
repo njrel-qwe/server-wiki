@@ -18,6 +18,15 @@ window.CATS = {
   material:   '◆ Ядра и материалы',
 };
 
+/* Куда ведёт категория и короткое описание для карточки-хаба каталога. */
+window.CATS_INFO = {
+  set:        { page:'items-sets.html',        blurb:'Полные комплекты брони: 5 сетов с бонусами, растущими по числу надетых частей.' },
+  weapon:     { page:'items-weapons.html',      blurb:'Именное оружие с активными способностями и уникальными пассивами.' },
+  amulet:     { page:'items-amulets.html',      blurb:'Одноразовые усиления на несколько применений: здоровье, урон, защита, фарм, вода.' },
+  consumable: { page:'items-consumables.html',  blurb:'Расходники разового или ограниченного действия — от побега до берсерк-баффа.' },
+  material:   { page:'items-materials.html',    blurb:'Ядра, осколки, эссенции и печати призыва — компоненты для крафта у Инженера.' },
+};
+
 window.ITEMS = [
   /* ===================== АМУЛЕТЫ ===================== */
   { id:'red_amulet', name:'Красный амулет', rarity:'uncommon', power:'I', cat:'amulet', icon:'red_amulet.png', sym:'❤',

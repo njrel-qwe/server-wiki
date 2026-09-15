@@ -38,7 +38,12 @@
       { id: 'progression', ic: '↗', t: 'Прогрессия',         h: 'pages/progression.html' },
     ]},
     { title: 'Предметы', links: [
-      { id: 'items',       ic: '◆', t: 'Каталог предметов',  h: 'pages/items.html' },
+      { id: 'items',            ic: '◆', t: 'Каталог предметов',  h: 'pages/items.html' },
+      { id: 'items-sets',       ic: '⛨', t: 'Броне-сеты',         h: 'pages/items-sets.html' },
+      { id: 'items-weapons',    ic: '⚔', t: 'Оружие',             h: 'pages/items-weapons.html' },
+      { id: 'items-amulets',    ic: '◈', t: 'Амулеты',            h: 'pages/items-amulets.html' },
+      { id: 'items-consumables',ic: '⚗', t: 'Расходники',         h: 'pages/items-consumables.html' },
+      { id: 'items-materials',  ic: '◆', t: 'Ядра и материалы',   h: 'pages/items-materials.html' },
       { id: 'rarity',      ic: '✦', t: 'Редкость и сила',      h: 'pages/rarity.html' },
       { id: 'recipes',     ic: '⚒', t: 'Рецепты крафта',     h: 'pages/recipes.html' },
     ]},

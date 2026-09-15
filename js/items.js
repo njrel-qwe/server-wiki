@@ -7,7 +7,9 @@
   var ITEMS = window.ITEMS || [];
   var RARITY = window.RARITY || {};
   var CATS = window.CATS || {};
+  var CATS_INFO = window.CATS_INFO || {};
   var SETS = window.SETS || {};
+  var CAT_ORDER = ['set', 'weapon', 'amulet', 'consumable', 'material'];
 
   function rarColor(r) { return (RARITY[r] && RARITY[r].c) || 'var(--ink)'; }
   function rarName(r) { return (RARITY[r] && RARITY[r].t) || ''; }
@@ -36,60 +38,55 @@
     return '<span class="ph" style="color:' + rarColor(it.rarity) + '">' + (it.sym || '?') + '</span>';
   }
 
-  /* ---------------- Каталог ---------------- */
+  function grid(list) {
+    var h = '<div class="itm-grid">';
+    list.forEach(function (it) {
+      h += '<a class="itm" href="item.html?id=' + it.id + '">' +
+             '<span class="slot">' + iconCell(it) + '</span>' +
+             '<span class="nm">' + it.name + '</span>' +
+             '<span class="rar" style="color:' + rarColor(it.rarity) + '">' + rarName(it.rarity) +
+               (it.power ? ' · Tier ' + it.power : '') + '</span>' +
+           '</a>';
+    });
+    return h + '</div>';
+  }
+
+  /* ---------------- Каталог: хаб категорий (items.html) ---------------- */
+  var hub = document.getElementById('catalog-hub');
+  if (hub) {
+    var h = '<div class="grid">';
+    CAT_ORDER.forEach(function (k) {
+      var count = ITEMS.filter(function (x) { return x.cat === k; }).length;
+      if (!count) return;
+      var info = CATS_INFO[k] || {};
+      h += '<a class="card" href="' + (info.page || 'items.html') + '">' +
+             '<span class="ic">' + CATS[k].split(' ')[0] + '</span>' +
+             '<span class="h">' + CATS[k].replace(/^\S+\s/, '') + ' · ' + count + '</span>' +
+             (info.blurb || '') +
+           '</a>';
+    });
+    hub.innerHTML = h + '</div>';
+  }
+
+  /* ---------------- Каталог: одна категория (items-*.html) ---------------- */
   var cat = document.getElementById('catalog');
   if (cat) {
-    var order = ['set', 'weapon', 'amulet', 'consumable', 'material'];
-
-    var filters = '<div class="filters"><span class="chip active" data-f="all">Все</span>';
-    order.forEach(function (k) { filters += '<span class="chip" data-f="' + k + '">' + CATS[k] + '</span>'; });
-    filters += '</div>';
-
+    var curCat = document.body.getAttribute('data-cat');
+    var list = ITEMS.filter(function (x) { return x.cat === curCat; });
     var body = '';
-    order.forEach(function (k) {
-      var list = ITEMS.filter(function (x) { return x.cat === k; });
-      if (!list.length) return;
-      body += '<div class="cat-block" data-cat="' + k + '"><h2 style="margin-top:1.2em">' + CATS[k] + '</h2>';
-      if (k === 'set') {
-        // группировка по сетам
-        Object.keys(SETS).forEach(function (sid) {
-          var pieces = list.filter(function (x) { return x.set === sid; });
-          if (!pieces.length) return;
-          var s = SETS[sid];
-          body += '<h3 style="color:' + rarColor(s.rarity) + '">' + s.name + '</h3>' +
-                  '<p style="margin-top:0">' + s.blurb + '</p>' + grid(pieces);
-        });
-      } else {
-        body += grid(list);
-      }
-      body += '</div>';
-    });
-
-    cat.innerHTML = filters + body;
-
-    function grid(list) {
-      var h = '<div class="itm-grid">';
-      list.forEach(function (it) {
-        h += '<a class="itm" href="item.html?id=' + it.id + '">' +
-               '<span class="slot">' + iconCell(it) + '</span>' +
-               '<span class="nm">' + it.name + '</span>' +
-               '<span class="rar" style="color:' + rarColor(it.rarity) + '">' + rarName(it.rarity) +
-                 (it.power ? ' · Tier ' + it.power : '') + '</span>' +
-             '</a>';
+    if (curCat === 'set') {
+      // группировка по сетам
+      Object.keys(SETS).forEach(function (sid) {
+        var pieces = list.filter(function (x) { return x.set === sid; });
+        if (!pieces.length) return;
+        var s = SETS[sid];
+        body += '<h2 style="color:' + rarColor(s.rarity) + ';margin-top:1.2em">' + s.name + '</h2>' +
+                '<p style="margin-top:0">' + s.blurb + '</p>' + grid(pieces);
       });
-      return h + '</div>';
+    } else {
+      body = grid(list);
     }
-
-    cat.querySelectorAll('.chip').forEach(function (chip) {
-      chip.addEventListener('click', function () {
-        cat.querySelectorAll('.chip').forEach(function (c) { c.classList.remove('active'); });
-        chip.classList.add('active');
-        var f = chip.getAttribute('data-f');
-        cat.querySelectorAll('.cat-block').forEach(function (b) {
-          b.style.display = (f === 'all' || b.getAttribute('data-cat') === f) ? '' : 'none';
-        });
-      });
-    });
+    cat.innerHTML = body;
   }
 
   /* ---------------- Детальная страница ---------------- */
@@ -101,6 +98,9 @@
 
     document.title = it.name + ' — server вики';
     var crumb = document.querySelector('.crumbs');
+    var catInfo = CATS_INFO[it.cat] || {};
+    var catPage = catInfo.page || 'items.html';
+    var catName = (CATS[it.cat] || '').replace(/^\S+\s/, '');
 
     var stats = (it.stats || []).map(function (kv) {
       return '<div class="kv"><b>' + kv[0] + '</b>' + kv[1] + '</div>';
@@ -120,7 +120,7 @@
     }
 
     det.innerHTML =
-      '<p><a href="items.html">← Каталог предметов</a></p>' +
+      '<p><a href="' + catPage + '">← ' + (catName || 'Каталог предметов') + '</a></p>' +
       '<div class="item-hero">' +
         '<span class="slot">' + iconCell(it, true) + '</span>' +
         '<div style="flex:1;min-width:240px">' +
@@ -137,7 +137,7 @@
       (it.how ? '<h3>Как получить</h3><p>' + it.how + '</p>' : '') +
       setBlock;
 
-    if (crumb) crumb.innerHTML = '<a href="' + R + 'index.html">Вики</a> / <a href="items.html">Предметы</a> / ' + it.name;
+    if (crumb) crumb.innerHTML = '<a href="' + R + 'index.html">Вики</a> / <a href="items.html">Предметы</a> / <a href="' + catPage + '">' + catName + '</a> / ' + it.name;
   }
 
   /* ---------------- Страница рецептов ---------------- */
