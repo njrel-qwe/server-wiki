@@ -24,6 +24,7 @@
       { id: 'city',        ic: '⛫', t: 'Город',              h: 'pages/city.html' },
       { id: 'court',       ic: '⚖', t: 'Суд',                h: 'pages/court.html' },
       { id: 'economy',     ic: '⇄', t: 'Экономика',          h: 'pages/economy.html' },
+      { id: 'currency',    ic: '⚜', t: 'Жетоны (валюта)',    h: 'pages/currency.html' },
     ]},
     { title: 'Война', links: [
       { id: 'factions',    ic: '⚑', t: 'Фракции',            h: 'pages/factions.html' },
@@ -260,7 +261,8 @@
       return window.ITEMS.map(function (it) {
         var cat = (window.CATS && window.CATS[it.cat]) || 'Предмет';
         var lore = (it.lore || []).join(' ').replace(/&[0-9a-frlmnok]/gi, ' ');
-        var body = [it.desc, it.how, lore].filter(Boolean).join(' ').replace(/\s+/g, ' ').trim();
+        var stats = (it.stats || []).map(function (s) { return s.join(' '); }).join(' ').replace(/<[^>]+>/g, '');
+        var body = [it.desc, stats, it.how, lore].filter(Boolean).join(' ').replace(/\s+/g, ' ').trim();
         return {
           type: 'item', ic: it.sym || '◆', htitle: it.name, page: cat,
           url: 'pages/item.html?id=' + it.id, // от корня; базу подставит render
@@ -269,15 +271,20 @@
       });
     }
 
-    function loadItems() {
+    // Данные предметов: сначала автогенерация из конфигов, потом ручной слой (он с ней сливается).
+    function loadScript(src) {
       return new Promise(function (res) {
-        if (window.ITEMS) return res();
         var s = document.createElement('script');
-        s.src = R + 'js/items-data.js';
+        s.src = R + src;
         s.onload = function () { res(); };
         s.onerror = function () { res(); };
         document.body.appendChild(s);
       });
+    }
+    function loadItems() {
+      if (window.ITEMS) return Promise.resolve();
+      return (window.GEN ? Promise.resolve() : loadScript('js/items-gen.js'))
+        .then(function () { return loadScript('js/items-data.js'); });
     }
 
     function build() {

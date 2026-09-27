@@ -40,14 +40,29 @@ index.html              — главная
 pages/                  — страницы механик + items.html (каталог), item.html (карточка), qa.html (ЧаВо)
 css/style.css           — вся стилизация (Minecraft GUI)
 js/site.js              — каркас (сайдбар, шапка, навигация, футер)
-js/items-data.js        — данные всех кастомных предметов
-js/items.js             — рендер каталога и карточек предметов
+js/items-gen.js         — АВТОГЕНЕРАЦИЯ из конфигов плагинов (не править руками)
+js/items-data.js        — ручной слой: описания механик, бонусы сетов, иконки, категории
+js/items.js             — каталог с поиском/фильтрами, карточки, рецепты, «где используется», добыча боссов
+scripts/gen_items_data.py — генератор js/items-gen.js
+scripts/gen_search_index.py — генератор js/search-index.js (индекс поиска по страницам)
 assets/items/           — иконки предметов (из текстурпака)
 assets/textures/        — текстуры блоков (фоны/панели)
 assets/fonts/           — Monocraft (+ опц. Minecraftia)
 assets/cursors/         — пиксельный курсор-меч
 assets/screenshots/     — ваши скриншоты сервера
 ```
+
+## Данные предметов — после любых правок плагинов
+Имена, лор, редкость, заряды, откаты, **все рецепты**, утилизация и источники лута берутся прямо из
+`CustomItems/config.yml`, `ServerCore/loot.yml` и `WorldEvents/squads.yml` (сайт лежит в монорепозитории
+рядом с плагинами). Поменяли предмет или рецепт — перегенерируйте:
+```
+python scripts/gen_items_data.py      # нужен PyYAML: pip install pyyaml
+python scripts/gen_search_index.py    # если меняли страницы
+```
+Дроп с боссов захардкожен в WorldEvents (`boss/LootSystem.java`) и продублирован в `BOSS_DROPS` генератора.
+В `js/items-data.js` правится только то, чего нет в конфигах: описание механики (`desc`, `stats`),
+бонусы сетов по частям (`SETS`), категория, иконка.
 
 ## Стилизация (кратко)
 - Фон — текстура deepslate; контент — каменная панель (читаемый тёмный фон).

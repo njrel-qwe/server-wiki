@@ -336,3 +336,53 @@ code{font-family:var(--mc);font-size:.82em;background:rgba(0,0,0,.4);padding:1px
   .nav-scrim{display:none;position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:35}
   body.nav-open .nav-scrim{display:block}
 }
+
+/* ---------- Каталог: панель поиска и фильтров ---------- */
+.toolbar{margin:18px 0 8px;padding:14px;background:rgba(16,18,16,.75);border:3px solid var(--edge)}
+.tb-input{width:100%;font-family:var(--mc);font-size:.8rem;color:var(--ink-dark);background:var(--inv);border:3px solid var(--edge);padding:11px 13px;outline:none;box-shadow:inset 2px 2px 0 var(--inv-hi),inset -2px -2px 0 var(--inv-sh)}
+.tb-input:focus{box-shadow:inset 2px 2px 0 var(--inv-hi),inset -2px -2px 0 var(--inv-sh),0 0 0 2px rgba(111,224,111,.45)}
+.toolbar .filters{margin:10px 0 0}
+.tb-check{display:inline-flex;align-items:center;gap:7px;font-family:var(--mc);font-size:.66rem;color:var(--ink-dim);margin-left:6px;cursor:var(--cur)}
+.tb-check input{width:16px;height:16px;accent-color:var(--green)}
+.tb-count{font-family:var(--mc);font-size:.66rem;color:var(--ink-faint);margin:8px 2px}
+.cat-h a{color:inherit}
+.sub{color:var(--ink-faint);font-size:.85em}
+.itm .bdgs{display:flex;flex-wrap:wrap;justify-content:center;gap:4px;min-height:14px}
+.bdg{font-family:var(--mc);font-size:.52rem;text-transform:uppercase;letter-spacing:.4px;padding:2px 5px;background:#3f7a3f;color:#eaffea;border:1px solid var(--edge)}
+.bdg.alt{background:#6a5a1a;color:#fff6cf}
+
+/* ---------- Ингредиенты, рецепты ---------- */
+.slot.sm{width:34px;height:34px;flex:0 0 34px;border-width:2px;box-shadow:inset -2px -2px 0 #373737,inset 2px 2px 0 #c6c6c6}
+.slot.sm img{width:26px;height:26px}
+.slot.sm .ph{font-size:.85rem}
+.ing,.use{display:inline-flex;align-items:center;gap:7px;padding:3px 9px 3px 3px;margin:3px 2px;background:rgba(0,0,0,.35);border:2px solid var(--edge);color:var(--ink);vertical-align:middle;line-height:1.2}
+a.ing:hover,a.use:hover{background:rgba(111,224,111,.18);color:#fff}
+.ing.van{color:var(--ink-dim)}
+.ing-t{font-size:.84rem}
+.ing b,.use b{font-family:var(--mc);font-size:.68rem;color:var(--gold)}
+.use i{font-style:normal;font-family:var(--mc);font-size:.55rem;text-transform:uppercase;color:var(--ink-faint)}
+.recipe{display:flex;flex-wrap:wrap;align-items:center;gap:4px 6px;padding:10px 12px;margin:8px 0;background:rgba(20,24,20,.8);border:2px solid var(--edge)}
+.recipe.hl{border-color:var(--gold)}
+.recipe .r-in,.recipe .r-out{display:flex;flex-direction:column}
+.recipe .r-parts{display:flex;flex-wrap:wrap;align-items:center;gap:0 4px;flex:1;min-width:200px}
+.r-lbl{font-family:var(--mc);font-size:.55rem;text-transform:uppercase;letter-spacing:.4px;color:var(--ink-faint)}
+.plus,.arrow{font-family:var(--mc);color:var(--ink-faint);font-size:.9rem}
+.arrow{color:var(--green);font-size:1.1rem;margin:0 4px}
+.totals{display:flex;flex-wrap:wrap;align-items:center;gap:2px 4px;margin:10px 0 18px;padding:10px 12px;border:2px dashed #4a5d40;background:rgba(20,24,20,.55)}
+.totals .r-lbl{margin-right:6px}
+.used-in{display:flex;flex-wrap:wrap;gap:2px}
+.src-list{margin:4px 0}
+.src-list li{padding:3px 0 3px 22px}
+.src-list li::before{top:10px}
+table.bonus td:first-child{white-space:nowrap;font-family:var(--mc);font-size:.7rem;color:#fff}
+table.mat-table td{vertical-align:middle}
+table.mat-table .src-list{font-size:.82rem}
+
+@media(max-width:600px){
+  .recipe .r-parts{min-width:0;flex-basis:100%}
+  .recipe .plus:first-of-type{display:none}
+  table.mat-table,table.mat-table tbody,table.mat-table tr,table.mat-table td{display:block;width:100%}
+  table.mat-table tr:first-child{display:none}
+  table.mat-table td{border-top:0}
+  table.mat-table tr td:first-child{border-top:2px solid var(--edge)}
+}

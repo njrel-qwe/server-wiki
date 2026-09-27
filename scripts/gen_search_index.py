@@ -18,6 +18,7 @@ PAGES = [
     ("⛫", "pages/city.html"),
     ("⚖", "pages/court.html"),
     ("⇄", "pages/economy.html"),
+    ("⚜", "pages/currency.html"),
     ("⚑", "pages/factions.html"),
     ("⬢", "pages/core.html"),
     ("⚔", "pages/war.html"),
