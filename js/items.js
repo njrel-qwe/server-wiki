@@ -6,6 +6,7 @@
 (function () {
   var R = window.SiteBase || '';
   var ICON = R + 'assets/items/';
+  var VAN_ICON = R + 'assets/items/vanilla/';
   var ITEMS = window.ITEMS || [];
   var GEN = window.GEN || { items: {}, recipes: [], recycle: {}, sources: {}, vanilla: {}, bossNames: {} };
   var RARITY = window.RARITY || {};
@@ -76,7 +77,8 @@
         '<span class="slot sm">' + iconCell(it) + '</span><span class="ing-t">' + esc(refName(ref)) + '</span>' + n + '</a>';
     }
     return '<a class="ing van" href="recipes.html?ing=' + ref.m + '" title="Ванильный предмет — все рецепты с ним">' +
-      '<span class="slot sm"><span class="ph">▫</span></span><span class="ing-t">' + esc(vanName(ref.m)) + '</span>' + n + '</a>';
+      '<span class="slot sm"><img src="' + VAN_ICON + ref.m.toLowerCase() + '.png" alt="" loading="lazy"></span>' +
+      '<span class="ing-t">' + esc(vanName(ref.m)) + '</span>' + n + '</a>';
   }
 
   function recipeRow(r, highlight) {
