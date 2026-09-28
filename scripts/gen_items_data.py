@@ -44,13 +44,13 @@ BOSS_NAMES = {'warlord': 'Железный Воевода', 'time_keeper': 'Хр
 # WorldEvents boss/LootSystem.java: (id, шанс для топ-3, шанс для участника)
 AMULETS = ['red_amulet', 'amulet_yellow', 'amulet_blue', 'amulet_green', 'amulet_cyan']
 BOSS_DROPS = {
-    'warlord': [('warlord_plate', 1, 1), ('battle_essence', .55, .25), ('harpoon', .30, 0),
+    'warlord': [('warlord_plate', 1, 1), ('battle_essence', 1, .25), ('harpoon', .30, 0),
                 ('polarity_crusher', .20, 0), ('golem_core', .30, 0), ('mystery_enchant_book', 1, 1)]
                + [(a, .70 / 5, 0) for a in AMULETS],
-    'time_keeper': [('chrono_shard', 1, 1), ('temporal_essence', .55, .25), ('echo_blade', .20, 0),
+    'time_keeper': [('chrono_shard', 1, 1), ('temporal_essence', 1, .25), ('echo_blade', .20, 0),
                     ('void_phase_shard', .30, 0), ('mystery_enchant_book', 1, 1)]
                    + [(a, .70 / 5, 0) for a in AMULETS],
-    'overlord': [('overlord_fragment', 1, 1), ('soul_essence', .65, .20), ('dominion_core', .30, .04),
+    'overlord': [('overlord_fragment', 1, 1), ('soul_essence', 1, .50), ('dominion_core', 1, .10),
                  ('last_breath', .16, 0), ('abyssal_trident', .10, 0), ('scepter_of_dominion', .08, 0),
                  ('golem_heart', .20, 0), ('magma_welder_core', .16, 0), ('mystery_enchant_book', 1, 1)]
                 + [(a, 1 / 5, 0) for a in AMULETS],

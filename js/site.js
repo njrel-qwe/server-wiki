@@ -47,6 +47,7 @@
       { id: 'items-materials',  ic: '◆', t: 'Ядра и материалы',   h: 'pages/items-materials.html' },
       { id: 'rarity',      ic: '✦', t: 'Редкость и сила',      h: 'pages/rarity.html' },
       { id: 'recipes',     ic: '⚒', t: 'Рецепты крафта',     h: 'pages/recipes.html' },
+      { id: 'accessories', ic: '✿', t: 'Аксессуары',         h: 'pages/accessories.html' },
     ]},
     { title: 'Правила и сервис', links: [
       { id: 'fairplay',    ic: '◉', t: 'Честная игра',       h: 'pages/fairplay.html' },
