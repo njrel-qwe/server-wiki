@@ -404,6 +404,22 @@
     });
   })();
 
+  // full-size view for accessory images only
+  document.addEventListener('click', function (e) {
+    var im = e.target.closest && e.target.closest('img.zoomable');
+    if (!im) return;
+    var lb = document.createElement('div');
+    lb.className = 'lb';
+    var big = document.createElement('img');
+    big.src = im.src; big.alt = im.alt;
+    lb.appendChild(big);
+    function close() { lb.remove(); document.removeEventListener('keydown', onKey); }
+    function onKey(ev) { if (ev.key === 'Escape') close(); }
+    lb.addEventListener('click', close);
+    document.addEventListener('keydown', onKey);
+    document.body.appendChild(lb);
+  });
+
   // expose helpers
   window.SiteBase = R;
   window.SiteConnect = CONNECT;
