@@ -36,6 +36,7 @@
       { id: 'contracts',   ic: '✎', t: 'Контракты',          h: 'pages/contracts.html' },
       { id: 'airdrops',    ic: '✈', t: 'Аирдропы',           h: 'pages/airdrops.html' },
       { id: 'bosses',      ic: '☠', t: 'Мировые боссы',      h: 'pages/bosses.html' },
+      { id: 'duels',       ic: '⚔', t: 'Дуэли',              h: 'pages/duels.html' },
       { id: 'progression', ic: '↗', t: 'Прогрессия',         h: 'pages/progression.html' },
     ]},
     { title: 'Предметы', links: [

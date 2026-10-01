@@ -128,7 +128,7 @@
         detail = s.bosses.map(function (b) {
           var name = GEN.bossNames[b.boss] || b.boss;
           var pct = function (v) { return v >= 1 ? 'всегда' : Math.round(v * 100) + '%'; };
-          return name + ': топ-3 — ' + pct(b.top) + (b.all ? ', остальным — ' + pct(b.all) : '');
+          return name + ': в куче — ' + pct(b.chance);
         }).join('; ');
       } else if (k === 'squads') {
         detail = 'отряд: ' + s.squads.map(function (b) { return GEN.bossNames[b] || b; }).join(', ');
@@ -366,13 +366,13 @@
       var rows = [];
       Object.keys(GEN.sources || {}).forEach(function (id) {
         (GEN.sources[id].bosses || []).forEach(function (b) {
-          if (b.boss === boss) rows.push({ id: id, top: b.top, all: b.all });
+          if (b.boss === boss) rows.push({ id: id, chance: b.chance });
         });
       });
-      rows.sort(function (a, b) { return b.top - a.top || b.all - a.all; });
-      return '<h3>' + GEN.bossNames[boss] + '</h3><table class="mat-table"><tr><th>Предмет</th><th>Топ-3</th><th>Остальным</th></tr>' +
+      rows.sort(function (a, b) { return b.chance - a.chance; });
+      return '<h3>' + GEN.bossNames[boss] + '</h3><table class="mat-table"><tr><th>Предмет</th><th>Шанс в куче</th></tr>' +
         rows.map(function (r) {
-          return '<tr><td>' + ingChip({ i: r.id, n: 1 }) + '</td><td>' + pct(r.top) + '</td><td>' + pct(r.all) + '</td></tr>';
+          return '<tr><td>' + ingChip({ i: r.id, n: 1 }) + '</td><td>' + pct(r.chance) + '</td></tr>';
         }).join('') + '</table>';
     }).join('') + '<p class="sub">Амулет выпадает один случайный из пяти — шанс в таблице указан на каждый конкретный.</p>';
   }

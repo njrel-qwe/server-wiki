@@ -26,6 +26,7 @@ PAGES = [
     ("✎", "pages/contracts.html"),
     ("✈", "pages/airdrops.html"),
     ("☠", "pages/bosses.html"),
+    ("⚔", "pages/duels.html"),
     ("↗", "pages/progression.html"),
     ("◆", "pages/items.html"),
     ("⛨", "pages/items-sets.html"),

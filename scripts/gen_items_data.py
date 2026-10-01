@@ -12,8 +12,8 @@
   все рецепты, «где используется», утилизация, источники лута.
 Ручное остаётся в js/items-data.js: описание механики, категория, иконка, «как получить».
 
-Дроп с самих боссов захардкожен в WorldEvents (boss/LootSystem.java), поэтому он
-продублирован ниже в BOSS_DROPS — при изменении LootSystem.java поправьте и его.
+Шансы кучи лута боссов продублированы ниже в BOSS_DROPS (из loot.yml BOSS_*_DROP и
+запасного лута LootSystem.java) — при их изменении поправьте и его.
 
 Запуск:  python scripts/gen_items_data.py   (нужен PyYAML: pip install pyyaml)
 """
@@ -41,19 +41,20 @@ STAGES = ['LANDING', 'SETTLING', 'WAR', 'ESCALATION', 'ENDGAME']
 
 BOSS_NAMES = {'warlord': 'Железный Воевода', 'time_keeper': 'Хранитель Времени', 'overlord': 'Повелитель'}
 
-# WorldEvents boss/LootSystem.java: (id, шанс для топ-3, шанс для участника)
+# Куча лута босса (ServerCore loot.yml BOSS_LANDING_*_DROP / запасной лут в LootSystem.java):
+# (id, шанс оказаться в куче). Весь лут падает на месте смерти босса, деления по урону нет.
 AMULETS = ['red_amulet', 'amulet_yellow', 'amulet_blue', 'amulet_green', 'amulet_cyan']
 BOSS_DROPS = {
-    'warlord': [('warlord_plate', 1, 1), ('battle_essence', 1, .25), ('harpoon', .30, 0),
-                ('polarity_crusher', .20, 0), ('golem_core', .30, 0), ('mystery_enchant_book', 1, 1)]
-               + [(a, .70 / 5, 0) for a in AMULETS],
-    'time_keeper': [('chrono_shard', 1, 1), ('temporal_essence', 1, .25), ('echo_blade', .20, 0),
-                    ('void_phase_shard', .30, 0), ('mystery_enchant_book', 1, 1)]
-                   + [(a, .70 / 5, 0) for a in AMULETS],
-    'overlord': [('overlord_fragment', 1, 1), ('soul_essence', 1, .50), ('dominion_core', 1, .10),
-                 ('last_breath', .16, 0), ('abyssal_trident', .10, 0), ('scepter_of_dominion', .08, 0),
-                 ('golem_heart', .20, 0), ('magma_welder_core', .16, 0), ('mystery_enchant_book', 1, 1)]
-                + [(a, 1 / 5, 0) for a in AMULETS],
+    'warlord': [('warlord_plate', 1), ('battle_essence', 1), ('harpoon', .30),
+                ('polarity_crusher', .20), ('golem_core', .30), ('mystery_enchant_book', 1)]
+               + [(a, .70 / 5) for a in AMULETS],
+    'time_keeper': [('chrono_shard', 1), ('temporal_essence', 1), ('echo_blade', .20),
+                    ('void_phase_shard', .30), ('mystery_enchant_book', 1)]
+                   + [(a, .70 / 5) for a in AMULETS],
+    'overlord': [('overlord_fragment', 1), ('soul_essence', 1), ('dominion_core', .50),
+                 ('last_breath', .16), ('abyssal_trident', .10), ('scepter_of_dominion', .08),
+                 ('golem_heart', .20), ('magma_welder_core', .16), ('mystery_enchant_book', 1)]
+                + [(a, 1 / 5) for a in AMULETS],
 }
 
 # Русские названия ванильных материалов, встречающихся в рецептах.
@@ -204,9 +205,9 @@ def main():
             sources.setdefault(iid, {}).setdefault('squads', set()).add(boss)
 
     for boss, drops in BOSS_DROPS.items():
-        for iid, top, other in drops:
+        for iid, chance in drops:
             sources.setdefault(iid, {}).setdefault('bosses', []).append(
-                {'boss': boss, 'top': round(top, 3), 'all': round(other, 3)})
+                {'boss': boss, 'chance': round(chance, 3)})
 
     for iid, src in sources.items():
         if 'squads' in src:
