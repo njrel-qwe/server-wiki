@@ -37,6 +37,7 @@ PAGES = [
     ("✦", "pages/rarity.html"),
     ("⚒", "pages/recipes.html"),
     ("◉", "pages/fairplay.html"),
+    ("⚙", "pages/mods.html"),
     ("§", "pages/rules.html"),
     ("?", "pages/qa.html"),
 ]

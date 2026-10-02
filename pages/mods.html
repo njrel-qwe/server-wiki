@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Моды клиента — server вики</title>
+<link rel="stylesheet" href="../css/style.css">
+</head>
+<body data-page="mods" data-title="Моды клиента">
+<main class="content">
+  <h1>Моды клиента</h1>
+  <div class="note warn">
+    <div class="t">Запрещена функция, а не название</div>
+    Аналог запрещённого мода под другим именем тоже запрещён. Сомневаетесь — спросите администратора <strong>njrel</strong> в Discord <strong>до</strong> использования.
+  </div>
+<p>Составлено по правилам крупных PvP/SMP-серверов (Hypixel, Minemen, PvP Legacy, FunTime, HolyWorld, ReallyWorld, MineBlaze, 2b2t-подобные анархии как пример «что считается читом»). Сервер: Paper 1.21.1, фракции, войны, боссы, дуэли.</p>
+<h2>0. Главный принцип</h2>
+<p>Разрешение и запрет относятся <strong>к функции, а не к названию мода</strong>. Если функция в списке запрещённых, она запрещена в любом моде, клиенте, ресурспаке, шейдере, внешней программе или макросе мыши/клавиатуры. Если мод из белого списка содержит запрещённую функцию, её нужно выключить, а если её нельзя выключить, нельзя использовать и мод.</p>
+<p>Общее правило для спорных случаев. Модификация запрещена, если она делает хотя бы одно из следующего:</p>
+<ol>
+<li><strong>Показывает информацию, которую ванильный клиент не показал бы</strong>: что-то сквозь блоки, за пределами прорисовки, данные сервера, которые обычно не видны.</li>
+<li><strong>Совершает действия за игрока</strong>: больше одного действия на одно нажатие, действия без нажатия, действия по условию.</li>
+<li><strong>Даёт физическое преимущество</strong>: дальность, скорость, отдачу, атаку, движение, которые недоступны в ванилле.</li>
+</ol>
+<p>Незнание правил не освобождает от ответственности. Если есть сомнения, нужно спросить администрацию <strong>до</strong> использования мода.</p>
+<h2>1. Белый список (разрешено)</h2>
+<div style="overflow-x:auto"><table>
+<tr><th>Категория</th><th>Примеры модов</th><th>Условия</th></tr>
+<tr><td>Производительность</td><td>Sodium, Lithium, FerriteCore, ImmediatelyFast, EntityCulling, ModernFix, MoreCulling, Nvidium, C2ME, Starlight, ScalableLux, Krypton, Debugify, Enhanced Block Entities, BadOptimizations, Dynamic FPS, Clumps, LazyDFU, Noisium, VMP, ThreadTweak, Exordium, Indium, FastQuit, Sodium Extra, Reese's Sodium Options, OptiFine</td><td>Без условий</td></tr>
+<tr><td>Шейдеры</td><td>Iris, Oculus, OptiFine shaders; паки Complementary, BSL, SEUS, Sildur's, MakeUp, Solas, Rethinking Voxels, Bliss, Photon</td><td>Шейдер не должен подсвечивать руды и сущности, а также делать блоки прозрачными</td></tr>
+<tr><td>HUD</td><td>ArmorHUD, Armor Status HUD, StatusEffectBars, Effective HUD, AppleSkin, BetterF3, MiniHUD (только инфо-строки о себе: координаты, FPS, направление, время), Keystrokes, CPS Display, Ping Display, ClientSide Clock, Durability Viewer, Item Durability Notifier, Combat Info (свои данные)</td><td>Показывают <strong>только своё</strong> состояние или то, что уже видно на экране</td></tr>
+<tr><td>Индикаторы урона и здоровья</td><td>Health Indicators, ToroHealth, Damage Tilt, Neat, Jade/WTHIT (без инфы сквозь блоки), Damage Numbers</td><td>Только по сущностям, которые <strong>видны напрямую</strong> (не сквозь стены)</td></tr>
+<tr><td>Зум</td><td>OkZoomer, Zoomify, WI Zoom, Logical Zoom, зум OptiFine</td><td>Только увеличение изображения, без подсветки и ESP</td></tr>
+<tr><td>Fullbright / гамма</td><td>Gamma Utils, Fullbright, Lighty (только показ уровня света для спавна мобов)</td><td>Разрешено. Вариант с подсветкой пещер или ночным зрением «по контуру» запрещён</td></tr>
+<tr><td>Метки</td><td>Waypoints, Simple Waypoints, Wwaypoints, Waypoint Mod, Better Waypoints</td><td>Только поставленные вручную своими координатами. Без отображения на карте, без автометок чужих объектов, без импорта чужих меток</td></tr>
+<tr><td>Инвентарь</td><td>Mouse Tweaks, Inventory Profiles Next (только сортировка кнопкой), Item Scroller (только перенос стаков), Inventory Sorter, Shulker Box Tooltip, BetterBundles, Inventory Essentials, Jumbo Furnace-подсказки, JEI, REI, EMI</td><td>Без авто-рефилла, без авто-экипировки, без раскладки в бою</td></tr>
+<tr><td>Чат</td><td>Chat Heads, No Chat Reports, Chat Patches, Emojiful, Chat Animation, BetterChat, Chat Up, Styled Chat (клиент)</td><td>Без автоответчиков и спам-ботов</td></tr>
+<tr><td>Голосовой чат</td><td>Plasmo Voice (стоит на сервере)</td><td>Без перехвата и записи чужих каналов</td></tr>
+<tr><td>Визуал</td><td>см. подробности ниже, раздел 1.1</td><td>См. условия в 1.1</td></tr>
+<tr><td>Ресурспаки</td><td>Любые эстетичные, PvP-паки (короткие мечи, низкий огонь, маленькие тотемы и щиты), паки с иконками зелий, Fresh Animations, Faithful, Bare Bones, Stay True, Vanilla Tweaks (кроме запрещённых опций)</td><td>Без X-Ray, прозрачных блоков, подсветки руд, контуров игроков. Из Vanilla Tweaks запрещены: Xray, Visual Ore Borders, Glowing Ores, Lower Shield, если он делает щит прозрачным</td></tr>
+<tr><td>Строительство</td><td>см. подробности ниже, раздел 1.2</td><td>См. условия в 1.2</td></tr>
+<tr><td>Запись и стримы</td><td>Replay Mod, Flashback, OBS, ReplayVoiceChat</td><td>Запись только своих сессий. Просмотр записей — вне игры</td></tr>
+<tr><td>Freelook / Perspective</td><td>Perspective Mod, Freelook, Better Third Person, Camera Overhaul</td><td><em>На усмотрение администрации, см. <a href="#4-решения-на-усмотрение-администрации">п. 4</a></em></td></tr>
+<tr><td>Удобства</td><td>Ванильные F3+B (хитбоксы) и F3+G (границы чанков), Controlling, ModMenu, Cloth Config, YetAnotherConfigLib, Sound Physics Remastered, Presence Footsteps, AmbientSounds, Dynamic Lights / LambDynamicLights, Borderless Mining, Better Mount HUD, Ping Wheel (метки для тиммейтов на видимый блок), Language Reload, Main Menu Credits, Resourcify, Skin Layers 3D, Entity Model Features, Entity Texture Features, CIT Resewn, Continuity, Polytone</td><td>Без условий, если нет функций из чёрного списка</td></tr>
+</table></div>
+<h3>1.1. Визуал (подробно)</h3>
+<p><strong>Разрешено:</strong></p>
+<ul class="clean">
+<li>скины, плащи и косметика клиента без влияния на хитбокс: Skin Layers 3D, Ears, Capes, Wildfire's Female Gender Mod, More Player Models (если не уменьшают модель);</li>
+<li>анимации игрока и предметов: Not Enough Animations, First-Person Model, Eating Animation, Bobby (с ограничением, см. ниже), Fresh Animations, Emotecraft, Player Animator, 3D Skin Layers;</li>
+<li>частицы и эффекты: Particle Rain, Falling Leaves, Visuality, Particular, Effective, Better Clouds, Wakes, Sodium Extra (выключение частиц и анимаций);</li>
+<li>отображение предметов: Item Physics Lite (только визуал на земле), Held Item Info, Better Lodestone, Dynamic Crosshair, кастомные прицелы, Shield Indicator;</li>
+<li>уменьшение помех: Low Fire, маленький щит/тотем в руке, Better Beds, No Fog (только туман погоды и неба), Clear Water (вода прозрачна <strong>только сверху</strong>, как в ванилле с Респирацией), выключение тряски камеры (No Hurt Cam, Bobbing off);</li>
+<li>интерфейс: Better Ping Display, Durability Tooltip, Paginated Advancements, Status Effect Timer, Better Advancements, Appleskin, Raised, Inventory HUD+ (только свой инвентарь), Custom Crosshair;</li>
+<li>освещение и небо: Dynamic Lights, Lumen, Fabulously Optimized (сборка), Custom Sky, CTM (Continuity), Better Grass, Connected Glass;</li>
+<li>дистанция прорисовки: Distant Horizons, Bobby, Farsight. Дальность прорисовки допускается, <strong>но без</strong> отображения игроков, сущностей и сундуков дальше серверной дистанции и без «новых чанков».</li>
+</ul>
+<p><strong>Запрещено</strong> (даже если называется «визуалом»):</p>
+<ul class="clean">
+<li>прозрачные или «стеклянные» блоки, руды с контуром, подсветка сундуков и спавнеров;</li>
+<li>изменение размера хитбоксов, уменьшение моделей игроков до невидимости, яркие контуры/свечение игроков (Glow, Chams);</li>
+<li>уменьшение или отключение частиц урона/невидимости <strong>так, что видно невидимых игроков</strong>: показ брони, частиц или контура невидимого игрока;</li>
+<li>удаление тумана в лаве, воде, Незере, слепоты и тьмы (Anti-Blind, No Darkness, Lava Vision);</li>
+<li>отключение эффектов слепоты и тошноты, удаление тыквы с экрана в целях обзора (No Pumpkin Overlay);</li>
+<li>удаление барьеров и блоков, мешающих обзору.</li>
+</ul>
+<h3>1.2. Строительство (подробно)</h3>
+<p><strong>Разрешено:</strong></p>
+<ul class="clean">
+<li>Litematica — <strong>только просмотр</strong> схемы (голограмма, списки материалов, проверка ошибок);</li>
+<li>Schematica, Structurize (просмотр), Axiom (только в режиме просмотра и без серверной части);</li>
+<li>WorldEdit CUI, Effortless Building (только визуальная сетка), Building Gadgets-визуализаторы;</li>
+<li>Chunk Borders, Light Overlay, Lighty, MiniHUD (только оверлеи: свет, границы чанков, слаймовые чанки), Build Guide, Shape Generator (только голограмма формы);</li>
+<li>Accurate Block Placement (только ванильная ориентация блока по взгляду), Carpet client-side визуализаторы, Better Placement без авторепита, Block Rotation Preview;</li>
+<li>Item Scroller для перекладки материалов из сундука, Litematica Material List, JEI/REI/EMI для рецептов;</li>
+<li>Ping Wheel для отметки блока тиммейту, Inventory Profiles для раскладки материалов вне боя.</li>
+</ul>
+<p><strong>Запрещено:</strong></p>
+<ul class="clean">
+<li>Litematica Printer, Easy Place, авто-постройка по схеме;</li>
+<li>Tweakeroo: <code>fastBlockPlacement</code>, <code>flexibleBlockPlacement</code> (установка «вне взгляда»), <code>blockReachOverride</code>, <code>placementRestriction</code> с авторепитом, <code>fastRightClick</code>, <code>handRestock</code>, <code>tweakAfterClicker</code>;</li>
+<li>Scaffold, AirPlace, AutoBridge, Tower;</li>
+<li>Effortless Building с реальной установкой нескольких блоков за одно нажатие (линии, стены, зеркала);</li>
+<li>авто-разрушение областей, WorldEdit/Axiom как реальное редактирование мира без прав администратора;</li>
+<li>MiniHUD-оверлеи, раскрывающие скрытое: «spawner positions», «structure bounding boxes» по сиду, «new chunks».</li>
+</ul>
+<h2>2. Чёрный список функций (запрещено)</h2>
+<p>Указанные моды приведены как примеры. Запрещена <strong>функция</strong> в любой реализации.</p>
+<h3>2.1. Обзор и ESP (лишняя информация)</h3>
+<div style="overflow-x:auto"><table>
+<tr><th>№</th><th>Функция</th><th>Как выглядит</th><th>Примеры</th></tr>
+<tr><td>В1</td><td><strong>X-Ray</strong></td><td>Видно руды, сундуки, спавнеры и базы сквозь блоки. Любой способ: мод, ресурспак с прозрачными блоками, шейдер, «прозрачная вода/лава», баг текстур</td><td>Advanced XRay, XRay Ultimate, Xray Mod Fabric, Simple Xray, Ore Finder, Tweakeroo <code>tweakXray</code>, X-ray ресурспаки, Vanilla Tweaks Xray</td></tr>
+<tr><td>В2</td><td><strong>ESP / Wallhack</strong></td><td>Контуры, свечение, хитбоксы или имена игроков, мобов, предметов <strong>сквозь стены</strong></td><td>Player ESP, Chams, Glow ESP, Mob ESP, Item ESP, Nametags сквозь стены, шейдеры с контуром</td></tr>
+<tr><td>В3</td><td><strong>Tracers</strong></td><td>Линии от прицела к игрокам, сундукам, предметам</td><td>Tracers, Entity Tracers, Chest Tracers</td></tr>
+<tr><td>В4</td><td><strong>Миникарта и карта мира — любые</strong></td><td>Любое отображение карты местности поверх экрана или в отдельном окне, в том числе без радара</td><td>Xaero's Minimap, Xaero's World Map, JourneyMap, VoxelMap, Antique Atlas, FTB Chunks, Map Atlases, Mapwriter, Zan's Minimap, Rei's Minimap, Opti/Lunar/Feather/Badlion-миникарты, Dynmap/BlueMap в игре</td></tr>
+<tr><td>В5</td><td><strong>Радар сущностей</strong></td><td>Метки игроков/мобов в HUD за пределами прямой видимости</td><td>Entity Radar, Player Radar, Mob Radar, Minimap Radar, Proximity HUD</td></tr>
+<tr><td>В6</td><td><strong>Freecam</strong></td><td>Камера отделяется от тела и летает сквозь блоки</td><td>Freecam (Fabric), Tweakeroo <code>tweakFreeCamera</code>, Spectator Freecam, Camera Utils, Flashback/Replay во время игры</td></tr>
+<tr><td>В7</td><td><strong>Поиск блоков и сущностей</strong></td><td>Подсветка или список определённых блоков в радиусе, «Search», «StorageESP», «HoleESP», «NewChunks»</td><td>Block Search, Chest Finder, Storage ESP, Hole ESP, NewChunks, Spawner Finder, Ore Detector, Treasure Finder</td></tr>
+<tr><td>В8</td><td><strong>Seed-cracking и предсказание мира</strong></td><td>Получение сида, расчёт структур, руд и биомов по сиду</td><td>SeedcrackerX, Seed Mapper, Chunkbase-оверлеи, Structure Finder, Ore Sim, Amidst в игре</td></tr>
+<tr><td>В9</td><td><strong>Чужие данные с сервера</strong></td><td>Просмотр инвентаря/брони, которые не видны, точного HP через стены, координат игроков, логгер пакетов для разведки</td><td>Inventory Viewer, Player Inventory Peek, ShowCoords, Coord Leak, PacketLogger, Server Info Spy</td></tr>
+<tr><td>В10</td><td><strong>Звуковой радар</strong></td><td>Визуальные стрелки/метки на источники звука сквозь стены (игроки, сундуки, порталы)</td><td>Sound ESP, Sound Locator, AuditoryHUD, Subtitles Plus с направлением сквозь стены</td></tr>
+<tr><td>В11</td><td><strong>Чужие карты</strong></td><td>Загрузка карт, сделанных другими игроками или ботами, для поиска баз</td><td>Шаринг Xaero/JourneyMap-файлов, map-download, World Downloader</td></tr>
+<tr><td>В12</td><td><strong>Сторонние PvP-клиенты</strong></td><td>Любой клиент со своим лаунчером и встроенными модулями</td><td>Lunar Client, Feather Client, Badlion Client, LabyMod, CheatBreaker, Salwyrr, PvPLounge, Cosmic Client, Tecknix, Pojav-сборки со встроенными модулями</td></tr>
+</table></div>
+<h3>2.2. Бой</h3>
+<div style="overflow-x:auto"><table>
+<tr><th>№</th><th>Функция</th><th>Описание</th><th>Примеры</th></tr>
+<tr><td>Б1</td><td><strong>KillAura / TriggerBot</strong></td><td>Автоматическая атака по цели в прицеле или вокруг игрока</td><td>KillAura, TriggerBot, AutoAttack, MultiAura, TpAura</td></tr>
+<tr><td>Б2</td><td><strong>AimAssist / AimBot</strong></td><td>Доводка или поворот камеры к цели, в том числе «плавный»</td><td>AimAssist, AimBot, BowAimbot, Trajectories с автонаведением, SilentAim</td></tr>
+<tr><td>Б3</td><td><strong>Reach</strong></td><td>Удар или установка блока дальше ванильной дистанции</td><td>Reach, Tweakeroo <code>blockReachOverride</code>, Extended Reach</td></tr>
+<tr><td>Б4</td><td><strong>Hitbox Expand</strong></td><td>Увеличенный хитбокс, засчитывающий промахи (F3+B разрешён)</td><td>Hitboxes, расширение в читах</td></tr>
+<tr><td>Б5</td><td><strong>Velocity / AntiKB</strong></td><td>Уменьшение или отключение отбрасывания</td><td>Velocity, AntiKnockback, NoPush</td></tr>
+<tr><td>Б6</td><td><strong>Criticals</strong></td><td>Криты без прыжка/падения</td><td>Criticals, Mini-jump crits</td></tr>
+<tr><td>Б7</td><td><strong>AutoTotem / Offhand</strong></td><td>Автоматическое перекладывание тотема или предмета во вторую руку</td><td>AutoTotem, Offhand, Tweakeroo <code>hand restock</code>, Totem Swap</td></tr>
+<tr><td>Б8</td><td><strong>AutoArmor</strong></td><td>Автоматическая экипировка брони</td><td>AutoArmor, Inventory Profiles auto-equip, Armor Swap</td></tr>
+<tr><td>Б9</td><td><strong>AutoPot / AutoGap / AutoEat</strong></td><td>Автоматическое питьё, еда, золотые яблоки</td><td>AutoEat, AutoPot, AutoGap, AutoSoup</td></tr>
+<tr><td>Б10</td><td><strong>AutoCrystal / Anchor / Bed</strong></td><td>Автоматическая установка и взрыв кристаллов, якорей, кроватей</td><td>CrystalAura, AnchorAura, BedAura, AutoCrystal</td></tr>
+<tr><td>Б11</td><td><strong>Crystal/hit optimizer</strong></td><td>Клиентское удаление кристалла или сущности до подтверждения сервера (ускоренное разрушение)</td><td>Marlow's Crystal Optimizer, Fast Crystal, Crystal Tweaks</td></tr>
+<tr><td>Б12</td><td><strong>AutoClicker и макросы</strong></td><td>Любой автоклик: мод, внешняя программа, макрос мыши, повтор при удержании. Кликать можно только <strong>вручную</strong></td><td>AutoClicker, OP Auto Clicker, ClickerMod, Logitech/Bloody/Razer/A4Tech-макросы, AHK, Jitter-скрипты</td></tr>
+<tr><td>Б13</td><td><strong>Авто-щит и авто-блок</strong></td><td>Автоматический подъём щита, авто-переключение оружия под щит противника</td><td>AutoShield, AutoWeapon, ShieldBreaker</td></tr>
+<tr><td>Б14</td><td><strong>AutoSwap / AutoTool в бою</strong></td><td>Автопереключение слота хотбара по условию</td><td>AutoTool, Tweakeroo <code>tweakToolSwitch</code>, AutoSword</td></tr>
+<tr><td>Б15</td><td><strong>Surround / AutoTrap / HoleFill</strong></td><td>Автоматическая постройка блоков вокруг себя или противника</td><td>Surround, AutoTrap, HoleFiller, Burrow, SelfTrap, AutoWeb</td></tr>
+<tr><td>Б16</td><td><strong>AntiBot / Target HUD с данными сквозь стены</strong></td><td>Целеуказание, прогноз HP и брони цели вне видимости</td><td>TargetHUD из чит-клиентов</td></tr>
+</table></div>
+<h3>2.3. Движение</h3>
+<div style="overflow-x:auto"><table>
+<tr><th>№</th><th>Функция</th><th>Примеры</th></tr>
+<tr><td>Д1</td><td><strong>Fly / ElytraFly / BoatFly</strong></td><td>Fly, ElytraFly, ElytraBoost, EntitySpeed, BoatFly, Jetpack</td></tr>
+<tr><td>Д2</td><td><strong>Speed / Strafe / BunnyHop</strong></td><td>Speed, Strafe, BunnyHop, Omni-Sprint, LongJump, HighJump</td></tr>
+<tr><td>Д3</td><td><strong>NoFall / NoSlow / AntiWeb</strong></td><td>NoFall, NoSlowdown (еда, щит, паутина, мёд, ягоды), NoWeb, IceSpeed</td></tr>
+<tr><td>Д4</td><td><strong>Jesus / Spider / Step / Phase</strong></td><td>Jesus, Spider, Step, Phase, Clip, NoClip, FastLadder</td></tr>
+<tr><td>Д5</td><td><strong>Timer</strong></td><td>Timer, TickShift</td></tr>
+<tr><td>Д6</td><td><strong>Blink / FakeLag</strong></td><td>Blink, FakeLag, PingSpoof, Teleport</td></tr>
+<tr><td>Д7</td><td><strong>Автодвижение</strong></td><td>Baritone, AutoWalk на маршрут, автопилот элитр, автопрокопка туннелей, Pathfinder. Ванильное «зажать W», ToggleSprint и ToggleSneak <strong>разрешены</strong></td></tr>
+<tr><td>Д8</td><td><strong>Elytra auto-swap</strong></td><td>Elytra Swap, Auto Elytra, Tweakeroo <code>tweakAutoSwitchElytra</code></td></tr>
+<tr><td>Д9</td><td><strong>AntiVoid / Anti-hunger / Parkour-bot</strong></td><td>AntiVoid, AntiHunger, Parkour, SafeWalk, Eagle</td></tr>
+</table></div>
+<h3>2.4. Мир, ресурсы, автоматизация</h3>
+<div style="overflow-x:auto"><table>
+<tr><th>№</th><th>Функция</th><th>Примеры</th></tr>
+<tr><td>М1</td><td><strong>Nuker / FastBreak / InstaMine</strong></td><td>Ломание нескольких блоков за раз, ускоренное ломание: Nuker, FastBreak, SpeedMine, InstaMine, VeinMiner (клиентский), Tree Capitator (клиентский)</td></tr>
+<tr><td>М2</td><td><strong>FastPlace / Scaffold / AirPlace</strong></td><td>Ускоренная установка, автостроение под ногами, установка в воздух: FastPlace, Scaffold, AirPlace, Tweakeroo <code>fastBlockPlacement</code>, <code>flexibleBlockPlacement</code></td></tr>
+<tr><td>М3</td><td><strong>Printer / Easy Place</strong></td><td>Litematica Printer, Easy Place, Schematica Printer</td></tr>
+<tr><td>М4</td><td><strong>AutoFish / AutoFarm / AutoMine</strong></td><td>AutoFish, AutoFarm, AutoMine, AutoBreed, AutoShear</td></tr>
+<tr><td>М5</td><td><strong>Боты и AFK</strong></td><td>AFK-бот, мульти-аккаунт через ботов, AutoReconnect для удержания AFK-зон, AntiAFK</td></tr>
+<tr><td>М6</td><td><strong>Chest Stealer / Auto-loot</strong></td><td>Мгновенное опустошение сундуков (аирдропы, данжи, боссы), авто-сбор лута: ChestStealer, AutoSteal, Loot Grabber. Ручной shift-клик и Mouse Tweaks разрешены</td></tr>
+<tr><td>М7</td><td><strong>Auto-craft / Auto-trade</strong></td><td>Автоматический крафт, торговля, ставки в казино по условию: AutoCraft, AutoTrade, Craft Presets с автоповтором</td></tr>
+<tr><td>М8</td><td><strong>Дюпы и эксплойты пакетов</strong></td><td>Любые клиентские эксплойты сервера, включая обход кулдаунов предметов CustomItems</td></tr>
+<tr><td>М9</td><td><strong>Автоматизация мини-игр</strong></td><td>Авто-прохождение мини-игр алтарей (стрельба, часы, выживание), предсказание и авто-ставки в казино</td></tr>
+</table></div>
+<h3>2.5. Прочее</h3>
+<div style="overflow-x:auto"><table>
+<tr><th>№</th><th>Функция</th></tr>
+<tr><td>П1</td><td><strong>Чит-клиенты целиком</strong>, даже с выключенными модулями, а также любые их форки, переименования и «приватные» сборки</td></tr>
+<tr><td>П2</td><td><strong>Обход античита</strong>: Disabler, спуф брендов клиента и модов, сокрытие модов от проверки</td></tr>
+<tr><td>П3</td><td><strong>Чат-спам и автоответчики</strong>: Spammer, AutoGG и AutoReply с рекламой</td></tr>
+<tr><td>П4</td><td><strong>Внешние программы с той же функцией</strong>: AHK, программы-оверлеи, считывание памяти процесса, ПО макросов мыши и клавиатуры с повтором действий</td></tr>
+<tr><td>П5</td><td><strong>Freelook</strong> — <em>если администрация решит запретить, см. <a href="#4-решения-на-усмотрение-администрации">п. 4</a></em></td></tr>
+</table></div>
+<h2>3. Макросы и железо</h2>
+<ul class="clean">
+<li><strong>Разрешено</strong>: переназначение кнопок (одна кнопка равна одному действию), мыши с боковыми кнопками, игровые мыши без настроенных макросов.</li>
+<li><strong>Запрещено</strong>: одна кнопка выполняет больше одного действия (свап+удар, пачка кликов, «W-tap» скриптом), повтор при удержании, double-click-баг мыши, используемый намеренно, debounce-твики для искусственного double-click.</li>
+</ul>
+<h2>4. Решения на усмотрение администрации</h2>
+<div style="overflow-x:auto"><table>
+<tr><th>Вопрос</th><th>Как делают топ-сервера</th><th>Рекомендация</th></tr>
+<tr><td>Freelook</td><td>Hypixel разрешает, часть PvP-серверов запрещает</td><td>Разрешить. F5 уже даёт похожий обзор</td></tr>
+<tr><td>Fullbright</td><td>Почти везде разрешён</td><td>Разрешить</td></tr>
+<tr><td>Сортировка инвентаря</td><td>Разрешена по кнопке</td><td>Разрешить, кроме авто-рефилла</td></tr>
+<tr><td>Хитбоксы F3+B</td><td>Ванильная функция</td><td>Разрешить</td></tr>
+</table></div>
+<h2>5. Проверка и наказания</h2>
+<ul class="clean">
+<li>Администрация может вызвать игрока на проверку (AnyDesk/скриншоты папки <code>mods</code>, <code>.minecraft</code>, списка процессов). Отказ, выход с сервера во время проверки или удаление файлов приравниваются к признанию.</li>
+<li>Уровни наказаний встроены в систему ServerCore (варны/баны с автоэскалацией):</li>
+<li style="margin-left:20px"><strong>Категория В (обзор), М (мир), Б/Д (бой, движение), П1/П2 (чит-клиенты)</strong>: бан. Срок определяет администрация.</li>
+<li style="margin-left:20px">Нарушение условий мода из белого списка (например, включённая запрещённая опция Tweakeroo): предупреждение, при повторе бан.</li>
+<li>Если запрещённую функцию обнаружили во время войны фракций, рейда или ивента, результат может быть аннулирован.</li>
+</ul>
+  <p>Общие принципы честной игры — на странице <a href="fairplay.html">Честная игра</a>, правила поведения — в <a href="rules.html">Правилах</a>.</p>
+</main>
+<script src="../js/search-index.js"></script>
+<script src="../js/site.js"></script>
+</body>
+</html>

@@ -52,6 +52,7 @@
     ]},
     { title: 'Правила и сервис', links: [
       { id: 'fairplay',    ic: '◉', t: 'Честная игра',       h: 'pages/fairplay.html' },
+      { id: 'mods',        ic: '⚙', t: 'Моды клиента',       h: 'pages/mods.html' },
       { id: 'rules',       ic: '§', t: 'Правила',            h: 'pages/rules.html' },
       { id: 'qa',          ic: '?', t: 'Вопросы и ответы',   h: 'pages/qa.html' },
     ]},
