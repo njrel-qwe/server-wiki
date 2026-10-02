@@ -9,7 +9,7 @@
   var R = inPages ? '../' : '';
 
   // Подключение: IP — плейсхолдер (замените), Discord — реальный
-  var CONNECT = { ip: 'play.server.ru', discord: 'https://discord.gg/nCaQaXrzhx' };
+  var CONNECT = { ip: 'blue.fnode.me:8238', discord: 'https://discord.gg/QDDXECKjnf' };
 
   var NAV = [
     { title: 'Начало', links: [

@@ -18,7 +18,7 @@ python -m http.server 8765 --directory .
 Сборка не нужна — это чистая статика.
 
 ## Что заменить под себя
-- **IP сервера** — в `js/site.js`, объект `CONNECT.ip` (сейчас плейсхолдер `play.server.ru`).
+- **IP сервера** — в `js/site.js`, объект `CONNECT.ip` (сейчас `blue.fnode.me:8238`).
   Discord уже указан реальный.
 - **Скриншоты** — положите 6 файлов в `assets/screenshots/` с именами:
   `spawn.png`, `mayak.png`, `contracts.png`, `court.png`, `tc.png`, `tc-inside.png`.
