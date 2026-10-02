@@ -20,9 +20,7 @@
     { title: 'Мир', links: [
       { id: 'world',       ic: '⊕', t: 'Мир и исследование', h: 'pages/world.html' },
       { id: 'stages',      ic: '▲', t: 'Стадии развития',    h: 'pages/stages.html' },
-      { id: 'peaceful',    ic: '☮', t: 'Мирные игроки',      h: 'pages/peaceful.html' },
       { id: 'city',        ic: '⛫', t: 'Город',              h: 'pages/city.html' },
-      { id: 'court',       ic: '⚖', t: 'Суд',                h: 'pages/court.html' },
       { id: 'economy',     ic: '⇄', t: 'Экономика',          h: 'pages/economy.html' },
       { id: 'currency',    ic: '⚜', t: 'Жетоны (валюта)',    h: 'pages/currency.html' },
     ]},
@@ -54,6 +52,7 @@
       { id: 'fairplay',    ic: '◉', t: 'Честная игра',       h: 'pages/fairplay.html' },
       { id: 'mods',        ic: '⚙', t: 'Моды клиента',       h: 'pages/mods.html' },
       { id: 'rules',       ic: '§', t: 'Правила',            h: 'pages/rules.html' },
+      { id: 'court',       ic: '⚖', t: 'Обжалование',        h: 'pages/court.html' },
       { id: 'qa',          ic: '?', t: 'Вопросы и ответы',   h: 'pages/qa.html' },
     ]},
   ];

@@ -14,9 +14,7 @@ PAGES = [
     ("➤", "pages/start.html"),
     ("⊕", "pages/world.html"),
     ("▲", "pages/stages.html"),
-    ("☮", "pages/peaceful.html"),
     ("⛫", "pages/city.html"),
-    ("⚖", "pages/court.html"),
     ("⇄", "pages/economy.html"),
     ("⚜", "pages/currency.html"),
     ("⚑", "pages/factions.html"),
@@ -39,6 +37,7 @@ PAGES = [
     ("◉", "pages/fairplay.html"),
     ("⚙", "pages/mods.html"),
     ("§", "pages/rules.html"),
+    ("⚖", "pages/court.html"),
     ("?", "pages/qa.html"),
 ]
 
